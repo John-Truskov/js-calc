@@ -1,0 +1,24 @@
+#expression{
+    height: 60px;
+    width: 296px;
+    color: gray;
+    display: table-cell;
+    text-align: right;
+    vertical-align: bottom;
+}
+#table{
+    margin-bottom: 0.67em;
+    height: 100px;
+    text-align: right;
+    font-size: 2em;
+    font-weight: bold;
+}
+button{
+    width: 69px;
+    height: 40px;
+    margin-bottom: 3px;
+    font-weight: bold;
+}
+body{
+    overflow: hidden;
+}

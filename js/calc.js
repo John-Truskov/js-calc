@@ -32,6 +32,8 @@ function equal(){
         if(table.innerText.length > 17){
             let size = 2 - (0.1 * (table.innerText.length - 18));
             table.style.fontSize = size + "em";
+        }else{
+            table.removeAttribute('style');
         }
     }else{
         return false;
@@ -69,6 +71,7 @@ function clear(){
     memory = 0;
     result = false;
     expression.innerText = '';
+    table.removeAttribute('style');
 }
 for(let i = 0; i < 10; i++){
     document.getElementById(String(i)).onclick = () => {

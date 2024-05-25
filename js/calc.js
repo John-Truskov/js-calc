@@ -29,6 +29,10 @@ function equal(){
         tchk = true;
         result = true;
         expression.innerText = expression.innerText + ' ' + b + ' =';
+        if(table.innerText.length > 17){
+            let size = 2 - (0.1 * (table.innerText.length - 18));
+            table.style.fontSize = size + "em";
+        }
     }else{
         return false;
     }
@@ -67,7 +71,7 @@ function clear(){
     expression.innerText = '';
 }
 for(let i = 0; i < 10; i++){
-    document.getElementById(String(i)).onclick = function(){
+    document.getElementById(String(i)).onclick = () => {
         if(result){
             table.innerText = '';
             expression.innerText = '';
@@ -75,12 +79,14 @@ for(let i = 0; i < 10; i++){
         }
         if(table.innerText === '0'){
             table.innerText = String(i);
+        }else if(table.innerText.length > 17){
+            table.innerText.substring(0, 17);
         }else{
             table.innerText = table.innerText + i;
         }
     };
 }
-document.getElementById('t').onclick = function(){
+document.getElementById('t').onclick = () => {
     if(result){
         table.innerText = '';
         expression.innerText = '';
@@ -98,13 +104,13 @@ document.getElementById('t').onclick = function(){
         return false;
     }
 };
-document.getElementById('p').onclick = function(){action('+');};
-document.getElementById('m').onclick = function(){action('-');};
-document.getElementById('u').onclick = function(){action('×');};
-document.getElementById('d').onclick = function(){action('÷');};
-document.getElementById('e').onclick = function(){equal();};
-document.getElementById('c').onclick = function(){clear();};
-document.getElementById('b').onclick = function(){
+document.getElementById('p').onclick = () => {action('+');};
+document.getElementById('m').onclick = () => {action('-');};
+document.getElementById('u').onclick = () => {action('×');};
+document.getElementById('d').onclick = () => {action('÷');};
+document.getElementById('e').onclick = () => {equal();};
+document.getElementById('c').onclick = () => {clear();};
+document.getElementById('b').onclick = () => {
     if(result){
         clear();
     }else{
@@ -112,12 +118,12 @@ document.getElementById('b').onclick = function(){
         tchk = !(table.innerText.includes('.'));
     }
 };
-document.getElementById('mp').onclick = function(){
+document.getElementById('mp').onclick = () => {
     memory = memory + Number(table.innerText);
     table.innerText = String(memory);
     result = true;
 };
-document.getElementById('mm').onclick = function(){
+document.getElementById('mm').onclick = () => {
     memory = memory - Number(table.innerText);
     table.innerText = String(memory);
     result = true;
